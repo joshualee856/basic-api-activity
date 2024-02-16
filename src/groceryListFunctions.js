@@ -13,7 +13,7 @@ function addItem(name, price) {
     }
 
     if (inList) {
-        updateQuantity(itemIndex);
+        groceryList[itemIndex].quantity += 1;
     } else {
         const newItem = {
             name,
@@ -28,10 +28,6 @@ function addItem(name, price) {
     logger.info(`Added item: '${name}' to the grocery list`);
     return `${name} has been added to the grocery list!`;
 };
-
-function updateQuantity(index) {
-    groceryList[index].quantity += 1;
-}
 
 module.exports = {
     groceryList,
