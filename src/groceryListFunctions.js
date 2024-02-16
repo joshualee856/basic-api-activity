@@ -1,20 +1,39 @@
 const { logger } = require('./util/logger')
 
-const shoppingList = [];
+const groceryList = [];
 
 function addItem(name, price) {
-    const newItem = {
-        name,
-        price: parseFloat(price).toFixed(2),
-        purchased: false,
+    let inList = false;
+    let itemIndex;
+    for (let i = 0; i < groceryList.length; i++) {
+        if (groceryList[i].name === name) {
+            itemIndex = i;
+            inList = true;
+        }
+    }
+
+    if (inList) {
+        updateQuantity(itemIndex);
+    } else {
+        const newItem = {
+            name,
+            price: parseFloat(price).toFixed(2),
+            quantity: 1,
+            purchased: false,
+        }
+
+        groceryList.push(newItem);
     }
     
-    shoppingList.push(newItem);
     logger.info(`Added item: ${newItem}`);
     return `${name} has been added to the grocery list!`;
 };
 
+function updateQuantity(index) {
+    groceryList[i].quantity += 1;
+}
+
 module.exports = {
-    shoppingList,
+    groceryList,
     addItem,
 }
