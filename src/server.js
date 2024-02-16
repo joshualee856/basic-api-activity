@@ -20,7 +20,7 @@ const server = http.createServer((req, res) => {
         const contentType = { 'Content-Type': 'application/json' };
 
         if (req.url.startsWith('/list')) {
-            let itemName = parse(req.url.split('/')[2]);
+            // let itemName = JSON.parse(req.url.split('/')[2]);
 
             switch(req.method) {
                 case 'GET':

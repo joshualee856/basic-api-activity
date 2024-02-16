@@ -25,12 +25,12 @@ function addItem(name, price) {
         groceryList.push(newItem);
     }
     
-    logger.info(`Added item: ${newItem}`);
+    logger.info(`Added item: '${name}' to the grocery list`);
     return `${name} has been added to the grocery list!`;
 };
 
 function updateQuantity(index) {
-    groceryList[i].quantity += 1;
+    groceryList[index].quantity += 1;
 }
 
 module.exports = {
