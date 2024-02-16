@@ -1,6 +1,3 @@
-// Winston Logging Imports
-const { createLogger, transports, format } = require("winston");
-
 // HTTP imports
 const http = require("http");
 // const { info } = require("console");
@@ -95,20 +92,3 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-// TODO: Implement logging functionality
-const infoLogger = createLogger({
-    level: "info", // log only messages with level 'info' and above
-    format: format.combine(
-        format.timestamp(),
-        format.printf(({ timestamp, level, message }) => {
-            return `${timestamp} [${level}]: ${message}`;
-        })
-    ),
-    transports: [
-        new transports.Console(), // log to the console
-        new transports.File({ filename: "app.log" }), // log to a file
-    ],
-});
-
-// TODO: Implement error logger
