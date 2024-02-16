@@ -1,9 +1,9 @@
 // HTTP imports
 const http = require("http");
-// const { info } = require("console");
 const PORT = 3000;
 
-const shoppingList = []
+// Shopping List Functions Import
+const { shoppingList, addItem } = require('./groceryListFunctions');
 
 // TODO: Implement status codes in the responses
 const server = http.createServer((req, res) => {
